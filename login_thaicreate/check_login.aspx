@@ -1,11 +1,16 @@
 <?php
 	session_start();
-	$conn = mysqli_connect("localhost","root","12345678");
-	mysqli_select_db($conn,"mydatabase");
-	$strSQL = "SELECT * FROM member WHERE Username = '".mysqli_real_escape_string($conn, $_POST['txtUsername'])."' 
-	and Password = '".mysqli_real_escape_string($conn, $_POST['txtPassword'])."'";
-	$objQuery = mysqli_query($conn, $strSQL);
-	$objResult = mysqli_fetch_array($objQuery);
+	$serverName = "localhost";
+	$userName = "root";
+	$userPassword = "12345678";
+	$dbName = "mydatabase";
+
+	$objCon = mysqli_connect($serverName,$userName,$userPassword,$dbName);
+
+	$strSQL = "SELECT * FROM member WHERE Username = '".mysqli_real_escape_string($objCon,$_POST['txtUsername'])."' 
+	and Password = '".mysqli_real_escape_string($objCon,$_POST['txtPassword'])."'";
+	$objQuery = mysqli_query($objCon,$strSQL);
+	$objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
 	if(!$objResult)
 	{
 			echo "Username and Password Incorrect!";
@@ -26,5 +31,5 @@
 				header("location:user_page.aspx");
 			}
 	}
-	mysqli_close($conn);
+	mysqli_close($objCon);
 ?>

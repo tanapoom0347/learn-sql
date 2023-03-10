@@ -12,10 +12,16 @@
 		exit();
 	}	
 	
-    $link = mysqli_connect("localhost", "root", "12345678", "mydatabase");
+	$serverName = "localhost";
+	$userName = "root";
+	$userPassword = "12345678";
+	$dbName = "mydatabase";
+
+	$objCon = mysqli_connect($serverName,$userName,$userPassword,$dbName);
+
 	$strSQL = "SELECT * FROM member WHERE UserID = '".$_SESSION['UserID']."' ";
-	$objQuery = mysqli_query($link, $strSQL);
-	$objResult = mysqli_fetch_array($objQuery);
+	$objQuery = mysqli_query($objCon,$strSQL);
+	$objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
 ?>
 <html>
 <head>
@@ -42,3 +48,6 @@
   <a href="logout.aspx">Logout</a>
 </body>
 </html>
+<?php
+	mysqli_close($objCon);
+?>

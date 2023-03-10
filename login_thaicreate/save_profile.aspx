@@ -5,7 +5,13 @@
 		echo "Please Login!";
 		exit();
 	}
-	$link = mysqli_connect("localhost", "root", "12345678", "mydatabase");
+
+	$serverName = "localhost";
+	$userName = "root";
+	$userPassword = "12345678";
+	$dbName = "mydatabase";
+
+	$objCon = mysqli_connect($serverName,$userName,$userPassword,$dbName);
 	
 	if($_POST["txtPassword"] != $_POST["txtConPassword"])
 	{
@@ -14,7 +20,7 @@
 	}
 	$strSQL = "UPDATE member SET Password = '".trim($_POST['txtPassword'])."' 
 	,Name = '".trim($_POST['txtName'])."' WHERE UserID = '".$_SESSION["UserID"]."' ";
-	$objQuery = mysqli_query($link, $strSQL);
+	$objQuery = mysqli_query($objCon,$strSQL);
 	
 	echo "Save Completed!<br>";		
 	
@@ -27,5 +33,5 @@
 		echo "<br> Go to <a href='user_page.aspx'>User page</a>";
 	}
 	
-	mysqli_close($link);
+	mysqli_close($objCon);
 ?>
