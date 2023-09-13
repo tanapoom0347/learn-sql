@@ -28,3 +28,6 @@ SELECT *
 INTO OUTFILE 'D:/Downloads/Downloads3/01_09csv/New folder/logbook14.csv'  
 FIELDS TERMINATED BY ',' ENCLOSED BY '"' ESCAPED BY '\\'  
 FROM logbook08;  
+  
+https://stackoverflow.com/questions/19101243/error-1130-hy000-host-is-not-allowed-to-connect-to-this-mysql-server  
+  mysql remote
