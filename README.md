@@ -2,32 +2,18 @@
 vultr-vps  
 tanapoom0347@gmail.com  
 Azsx  
-LOAD DATA INFILE 'D:/Downloads/Downloads3/01_09csv/New folder/01.csv' INTO TABLE logbooks FIELDS TERMINATED BY ',' ENCLOSED BY '"' ESCAPED BY '\\' (@vone,@vtwo,@vthree,@vfour,@vfive,@vsix,@vseven,@veight,@vnine,@vten,@veleven) SET one = @vone,two = @vtwo,three = @vthree,four = @vfour,five = @vfive,six = @vsix,seven = @vseven,eight = @veight,nine = @vnine,ten = @vten,eleven = @veleven;  
+LOAD DATA INFILE 'D:/Downloads/Downloads3/01_09csv/New folder/01.csv' INTO TABLE logbooks FIELDS TERMINATED BY ',' ENCLOSED BY '"' ESCAPED BY '\\\' (@vone,@vtwo,@vthree,@vfour,@vfive,@vsix,@vseven,@veight,@vnine,@vten,@veleven) SET one = @vone,two = @vtwo,three = @vthree,four = @vfour,five = @vfive,six = @vsix,seven = @vseven,eight = @veight,nine = @vnine,ten = @vten,eleven = @veleven;  
   
-LOAD DATA INFILE 'D:/New folder/ch001.csv' INTO TABLE b001 FIELDS TERMINATED BY ',';  
+load data infile 'D:\\\Downloads\\\Downloads3\\\01_09csv\\\New folder\\\logbook.csv'   
+into table logbook   
+fields terminated by ',' enclosed by '"' escaped by ''   
+lines terminated by '\r\n';  
   
-SELECT *  
-INTO OUTFILE 'D:/Downloads/Downloads3/01_09csv/New folder/02.csv'  
- FIELDS TERMINATED BY ','  
-FROM logbooks  
-  
-SELECT *  
-INTO OUTFILE 'D:/New folder/z001.csv'  
-FIELDS TERMINATED BY ','  
-FROM b001 ;  
-  
-select GROUP_CONCAT(CONCAT("'",COLUMN_NAME,"'"))  
-from INFORMATION_SCHEMA.COLUMNS  
-WHERE TABLE_NAME = 'logbook'  
-AND TABLE_SCHEMA = 'test'  
-order BY ORDINAL_POSITION  
-  
-LOAD DATA INFILE 'D:/Downloads/Downloads3/01_09csv/New folder/logbook08.csv' INTO TABLE logbook08 FIELDS TERMINATED BY ','  ENCLOSED BY '"' ESCAPED BY '\\' IGNORE 1 LINES;  
-  
-SELECT *  
-INTO OUTFILE 'D:/Downloads/Downloads3/01_09csv/New folder/logbook14.csv'  
-FIELDS TERMINATED BY ',' ENCLOSED BY '"' ESCAPED BY '\\'  
-FROM logbook08;  
+select *   
+into outfile 'D:\\\Downloads\\\Downloads3\\\01_09csv\\\New folder\\\logbook10.csv'   
+fields terminated by ',' enclosed by '"' escaped by ''   
+lines terminated by '\r\n'  
+from logbook;  
   
 https://stackoverflow.com/questions/19101243/error-1130-hy000-host-is-not-allowed-to-connect-to-this-mysql-server  
   mysql remote
