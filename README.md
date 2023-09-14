@@ -16,5 +16,10 @@ fields terminated by ',' enclosed by '"' escaped by ''
 lines terminated by '\r\n'  
 from logbook;  
   
+SELECT group_concat('"',column_name,'"')   
+FROM information_schema.columns   
+WHERE table_name = 'logbook' AND table_schema = 'test'   
+ORDER BY ordinal_position;  
+  
 https://stackoverflow.com/questions/19101243/error-1130-hy000-host-is-not-allowed-to-connect-to-this-mysql-server  
   mysql remote
