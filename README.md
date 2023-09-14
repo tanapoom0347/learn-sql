@@ -11,7 +11,7 @@ lines terminated by '\r\n'
 ignore 1 lines;  
   
 select *   
-into outfile 'D:\\\Downloads\\\Downloads3\\\01_09csv\\\New folder\\\logbook10.csv'   
+into outfile 'D:\\\Downloads\\\Downloads3\\\01_09csv\\\New folder\\\logbook10.csv'    
 fields terminated by ',' enclosed by '"' escaped by ''   
 lines terminated by '\r\n'  
 from logbook;  
