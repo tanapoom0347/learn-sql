@@ -23,3 +23,10 @@ ORDER BY ordinal_position;
   
 https://stackoverflow.com/questions/19101243/error-1130-hy000-host-is-not-allowed-to-connect-to-this-mysql-server  
   mysql remote
+  
+(select 'c1','c2','c3','c4','c5','c6','c7','c8','c9','c10','c11')   
+union   
+(select * from logbook )   
+into outfile 'D:\\Downloads\\Downloads3\\01_09csv\\New folder\\logbook16.csv'   
+fields terminated by ',' enclosed by '"' escaped by ''   
+lines terminated by '\r\n';  
