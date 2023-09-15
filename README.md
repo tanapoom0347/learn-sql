@@ -38,3 +38,7 @@ SELECT group_concat('"',column_name,'"')
 FROM information_schema.columns  
 WHERE table_name = 'logbook' AND table_schema = 'test'  
 ORDER BY ordinal_position;  
+  
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'admin';  
+flush privileges;  
+exit;  
