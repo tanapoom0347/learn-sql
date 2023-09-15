@@ -40,5 +40,6 @@ WHERE table_name = 'logbook' AND table_schema = 'test'
 ORDER BY ordinal_position;  
   
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'admin';  
+use mysql;  
 flush privileges;  
 exit;  
