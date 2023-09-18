@@ -43,3 +43,11 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY 'admin';
 use mysql;  
 flush privileges;  
 exit;  
+  
+SELECT   
+    DATEDIFF(YEAR, [birthdate], GETDATE()) -  
+    CASE   
+        WHEN DATEADD(YEAR, DATEDIFF(YEAR, [birthdate], GETDATE()), [birthdate]) > GETDATE()   
+        THEN 1   
+        ELSE 0   
+    END AS [age]  
