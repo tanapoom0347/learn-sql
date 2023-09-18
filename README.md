@@ -52,3 +52,12 @@ SELECT
         THEN 1   
         ELSE 0   
     END AS [age]  
+  
+SELECT TOP(1000000) *  
+FROM (  
+    SELECT   
+        *,   
+        ROW_NUMBER() OVER (ORDER BY province_name,amphur_name) AS RowNum  
+    FROM [Complete_ALL_YEARS_878]  
+) AS TempTable  
+WHERE RowNum > 0;  
