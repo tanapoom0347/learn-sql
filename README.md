@@ -44,7 +44,7 @@ use mysql;
 flush privileges;  
 exit;  
   
-[SQL Server]  
+\[SQL Server\]  
 SELECT   
     DATEDIFF(YEAR, [birthdate], GETDATE()) -  
     CASE   
