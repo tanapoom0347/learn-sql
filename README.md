@@ -61,3 +61,5 @@ FROM (
     FROM [Complete_ALL_YEARS_878]  
 ) AS TempTable  
 WHERE RowNum > 0;  
+  
+sqlcmd -S DESKTOP-G5GUPEN\SQLEXPRESS -d CompleteF -E -Q "select * from before77province where province_name = 'อุบลราชธานี' and amphur_name = 'TTTT'" -o "D:\Work\09_SEP\03\77จังหวัด+NULL\อุบลราชธานี\TTTT.csv" -s"," -W -h-1  
